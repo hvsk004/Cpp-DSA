@@ -8,6 +8,12 @@ public:
     Node *right;
     Node(int x) : key(x), left(NULL), right(NULL) {}
 };
+
+// Inorder => Left, Root, Right.
+
+// Preorder => Root, Left, Right.
+
+// Post order => Left, Right, Root.
 void preorderTraversal(Node *root)
 {
     if (root != NULL)
@@ -17,7 +23,7 @@ void preorderTraversal(Node *root)
         preorderTraversal(root->right);
     }
 }
-void postorderTraversal(Node *root)
+void postorderTraversal(Node *root) // Also known  reverse polish notation LRP
 {
     if (root != NULL)
     {
