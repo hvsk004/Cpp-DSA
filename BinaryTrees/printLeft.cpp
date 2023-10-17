@@ -31,8 +31,22 @@ void printLeft(Node *root) // Iterative Approach
         cout << endl;
     }
 }
+void printLeft2(Node *root, int level, int &maxLevel) // Recursive Approach
+{
+    if (root == NULL)
+        return;
+    if (maxLevel < level)
+    {
+        cout << root->key << " ";
+        maxLevel = level;
+    }
+    printLeft2(root->left, level + 1, maxLevel);
+    printLeft2(root->right, level + 1, maxLevel);
+}
 int main()
 {
+    int maxLevel = 0;
+
     Node *tree = new Node(10);
     tree->left = new Node(15);
     tree->right = new Node(20);
@@ -43,5 +57,8 @@ int main()
     tree->right->left->right = new Node(70);
     cout << "Left side view is: \n";
     printLeft(tree);
+
+    cout << "Recursisve Approach: ";
+    printLeft2(tree, 1, maxLevel);
     return 0;
 }
