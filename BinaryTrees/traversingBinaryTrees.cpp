@@ -9,11 +9,11 @@ public:
     Node(int x) : key(x), left(NULL), right(NULL) {}
 };
 
-// Inorder => Left, Root, Right.
+// Inorder => Left, Root, Right.  LPR
 
-// Preorder => Root, Left, Right.
+// Preorder => Root, Left, Right. PLR
 
-// Post order => Left, Right, Root.
+// Post order => Left, Right, Root.  LRP
 void preorderTraversal(Node *root)
 {
     if (root != NULL)
