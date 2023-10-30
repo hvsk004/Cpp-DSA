@@ -44,24 +44,27 @@ void preoderTraversal(Node *root, vector<int> v)
             s.push(curr->left);
     }
 }
-void postoderTraversal(Node *root, vector<int> v)
+void preoderTraversal2(Node *root, vector<int> v)
 {
     if (root == NULL)
         return;
     stack<Node *> s;
-    Node *curr = root;
+    s.push(root);
+    Node *curr = s.top();
     while (s.empty() == false || curr != NULL)
     {
         while (curr != NULL)
         {
-            s.push(curr);
+            v.push_back(curr->key);
+            if (curr->right != NULL)
+                s.push(curr->right);
             curr = curr->left;
         }
-        curr = s.top();
-        s.pop();
-        v.push_back(curr->key);
-        curr = s.top();
-        curr = curr->right;
+        if (s.empty() == false)
+        {
+            curr = s.top();
+            s.pop();
+        }
     }
 }
 int main()
